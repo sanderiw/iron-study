@@ -1,14 +1,24 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
+// Style import
+import "./App.css";
+import "bootstrap/dist/js/bootstrap.js";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-import card from './Card/Card';
+// Package Imports
+import { BrowserRouter } from "react-router-dom";
 
+// Components Import
+import Navbar from "./Homepage/Navbar";
+import Feed from "./Homepage/Feed";
+
+// Others
 
 function App() {
-  return (
-    <div>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Navbar />
+            <Feed />
+        </BrowserRouter>
+    );
 }
 
 export default App;
