@@ -1,0 +1,4 @@
+.studentsBar-container {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
