@@ -3,12 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import card from './Card/Card';
 import Searchbar from './Homepage/Searchbar'
+import StudentsBar from './Homepage/StudentsBar'
 
 
 function App() {
   return (
     <div>
-      <Searchbar/>
+      <StudentsBar />
+      <Searchbar />
     </div>
   );
 }
