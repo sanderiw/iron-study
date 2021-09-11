@@ -1,6 +1,6 @@
 // Style import
 import "./App.css";
-import "bootstrap/dist/js/bootstrap.js";
+//import "bootstrap/dist/js/bootstrap.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Package Imports
