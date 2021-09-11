@@ -1,4 +1,4 @@
-const card = [
+const cards = [
     {
         "url" : "https://www.youtube.com/watch?v=Ws9WVHhNq5M",
         "type": "video",
@@ -25,4 +25,4 @@ const card = [
     }
 ]
 
-export default card;
+export default cards;
