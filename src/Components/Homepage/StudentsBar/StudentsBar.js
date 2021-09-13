@@ -1,39 +1,20 @@
-import Alexandre from "./img/Alexandre.jpeg";
-import Anna from "./img/Anna.jpeg";
-import Caio from "./img/Caio.jpeg";
-import Filipe from "./img/Filipe.jpeg";
-import Guilherme from "./img/Guilherme.jpeg";
-import Manoel from "./img/Manoel.jpeg";
-import Natalia from "./img/Natalia.jpeg";
-import Nicollas from "./img/Nicollas.jpeg";
-import Nilton from "./img/Nilton.jpeg";
-import Pedro from "./img/Pedro.jpeg";
-import Raul from "./img/Raul.jpeg";
-import Sander from "./img/Sander.jpeg";
+import { Link } from "react-router-dom";
 
-import Student from "../Student/Student";
 import "./StudentsBar.css";
-
-const studentsImages = [
-  Alexandre,
-  Anna,
-  Caio,
-  Filipe,
-  Guilherme,
-  Manoel,
-  Natalia,
-  Nicollas,
-  Nilton,
-  Pedro,
-  Raul,
-  Sander,
-];
+import studentData from "../../StudentData/studentData";
 
 const StudentsBar = () => {
   return (
-    <div className="studentsBar-container">
-      {studentsImages.map((img) => (
-        <Student img={img} />
+    <div className="studentsBar-container pb-2">
+      {studentData.map((person) => (
+        <Link to={`/profile/${person.name}`} key={person.name}>
+          <img
+            src={person.img}
+            alt="imgStudentProfile"
+            className="rounded-circle mx-1"
+            width="60"
+          />
+        </Link>
       ))}
     </div>
   );
