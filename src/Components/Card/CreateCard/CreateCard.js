@@ -1,34 +1,36 @@
 import React from "react";
-import CreateForm from "../Form/CreateForm";
+import CreateForm from "../../Form/CreateForm";
 import axios from "axios";
 
 class CreateCard extends React.Component {
     state = {
-        _id: "",
         url: "",
         type: "",
         text: "",
         tag: "",
         author: "",
-        createdTime: "",
+        createdTime: null,
+        edited: false
     };
 
     handleChange = (event) => {
         return this.setState({ [event.target.name]: event.target.value });
     };
 
-    handleSubmit = (event) => {
+    createTime = async () => {
+        return this.setState({ createdTime: new Date() });
+    };
+
+    handleSubmit = async (event) => {
+        await this.createTime();
         event.preventDefault();
-        axios
-            .post(
-                "https://ironrest.herokuapp.com/natSanderIronStudy",
-                this.state
-            )
-            .then((response) => {
-                console.log(response);
-                this.props.history.push("/");
-            })
-            .catch((err) => console.error(err));
+        try {   
+            const response = await axios.post("https://ironrest.herokuapp.com/natSanderIronStudy", this.state);
+            console.log(response);
+            this.props.history.push("/");
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     render() {

@@ -24,7 +24,8 @@ function CreateForm(props) {
                 value={props.state.url}
             />
             <RadioButton 
-                onChange={props.state.handleChange}
+                onChange={props.handleChange}
+                name="type"
             />
 
             <TextAreaInput
@@ -44,7 +45,7 @@ function CreateForm(props) {
                 value={props.state.tag}
             />
 
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-light m-4">
                 Enviar
             </button>
         </form>

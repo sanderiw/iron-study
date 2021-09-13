@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import { Link } from "react-router-dom";
 
 class Feed extends React.Component {
     state = {
@@ -11,6 +12,9 @@ class Feed extends React.Component {
             const response = await axios.get(
                 "https://ironrest.herokuapp.com/natSanderIronStudy"
             );
+            response.data.sort((a, b) => {
+                return b._id.localeCompare(a._id)
+            })
             this.setState({ allCards: response.data });
         } catch (error) {
             console.error(error);
@@ -25,9 +29,10 @@ class Feed extends React.Component {
                     return (
                         <div
                             key={card._id}
-                            className="card mt-4"
+                            className="card mt-2 mb-5"
                             style={{ width: "100vw" }}
                         >
+                            <p className="m-0 text-dark">{card.edited ? "Edited" : ""}</p>
                             <a href={card.url} target="_blank" rel="noreferrer">
                                 <img
                                     src={
@@ -37,7 +42,22 @@ class Feed extends React.Component {
                                     alt="..."
                                 />
                             </a>
-
+                            <div
+                                className="card-body"
+                            >
+                                <Link to="/share" className="card-link text-dark">
+                                    <i
+                                        id="share"
+                                        class="far fa-share-square"
+                                    ></i>
+                                </Link>
+                                <Link to={`/edit/${card._id}`} className="card-link text-dark">
+                                    <i id="edit" class="far fa-edit"></i>
+                                </Link>
+                                <Link to={`/delete/${card._id}`} className="card-link text-dark">
+                                    <i id="delete" class="far fa-trash-alt"></i>
+                                </Link>
+                            </div>
                             <div className="card-body">
                                 <h5 className="card-title">{card.author}</h5>
                                 <p className="card-text">{card.text}</p>
@@ -51,14 +71,6 @@ class Feed extends React.Component {
                                     {card.createdTime}
                                 </li>
                             </ul>
-                            {/* <div className="card-body">
-                            <a href="#" className="card-link">
-                                Card link
-                            </a>
-                            <a href="#" className="card-link">
-                                Another link
-                            </a>
-                        </div> */}
                         </div>
                     );
                 })}
