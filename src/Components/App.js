@@ -4,11 +4,12 @@ import "bootstrap/dist/js/bootstrap.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Package Imports
-import { BrowserRouter } from "react-router-dom";
-import Searchbar from './Homepage/Searchbar'
-import StudentsBar from './Homepage/StudentsBar'
+import { BrowserRouter, Route } from "react-router-dom";
+import Searchbar from "./Homepage/Searchbar";
+import StudentsBar from "./Homepage/StudentsBar";
 
 // Components Import
+import CreateCard from "./CreateCard/CreateCard";
 import Navbar from "./Homepage/Navbar";
 import Feed from "./Homepage/Feed";
 
@@ -17,10 +18,11 @@ import Feed from "./Homepage/Feed";
 function App() {
     return (
         <BrowserRouter>
-            <Navbar />
-            <StudentsBar />
-            <Searchbar />
-            <Feed />
+            <Route path="/" component={Navbar} />
+            <Route exact path="/" component={StudentsBar} />
+            <Route exact path="/" component={Searchbar} />
+            <Route exact path="/" component={Feed} />
+            <Route path="/create" component={CreateCard} />
         </BrowserRouter>
     );
 }
