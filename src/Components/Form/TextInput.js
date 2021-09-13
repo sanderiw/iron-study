@@ -1,6 +1,6 @@
 function TextInput(props) {
     return (
-        <div className="mb-3">
+        <div className="m-4">
             <label htmlFor={props.id} className="form-label">
                 {props.label}
             </label>

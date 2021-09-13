@@ -9,9 +9,12 @@ import Searchbar from "./Homepage/Searchbar";
 import StudentsBar from "./Homepage/StudentsBar";
 
 // Components Import
-import CreateCard from "./CreateCard/CreateCard";
+import DeleteCard from "./Card/DeleteCard/DeleteCard";
+import CreateCard from "./Card/CreateCard/CreateCard";
+import EditCard from "./Card/EditCard/EditCard";
 import Navbar from "./Homepage/Navbar";
 import Feed from "./Homepage/Feed";
+import Info from "./Info/Info";
 
 // Others
 
@@ -23,6 +26,9 @@ function App() {
             <Route exact path="/" component={Searchbar} />
             <Route exact path="/" component={Feed} />
             <Route path="/create" component={CreateCard} />
+            <Route path="/delete/:id" component={DeleteCard} />
+            <Route path="/edit/:id" component={EditCard} />
+            <Route path="/info" component={Info} />
         </BrowserRouter>
     );
 }
