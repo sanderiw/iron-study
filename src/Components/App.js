@@ -1,12 +1,14 @@
 // Style import
 import "./App.css";
-import "bootstrap/dist/js/bootstrap.js";
+//import "bootstrap/dist/js/bootstrap.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Package Imports
 import { BrowserRouter, Route } from "react-router-dom";
 import Searchbar from "./Homepage/Searchbar";
-import StudentsBar from "./Homepage/StudentsBar";
+import StudentsBar from './Homepage/StudentsBar/StudentsBar'
+import StudentProfile from "./Homepage/StudentProfile/StudentProfile"
+
 
 // Components Import
 import DeleteCard from "./Card/DeleteCard/DeleteCard";
@@ -25,6 +27,7 @@ function App() {
             <Route exact path="/" component={StudentsBar} />
             <Route exact path="/" component={Searchbar} />
             <Route exact path="/" component={Feed} />
+            <Route path="/profile/:name" component={StudentProfile} />
             <Route path="/create" component={CreateCard} />
             <Route path="/delete/:id" component={DeleteCard} />
             <Route path="/edit/:id" component={EditCard} />
