@@ -15,8 +15,8 @@ const students = [
 
 function DropdownMenu(props) {
     return (
-        <div>
-            <label for={props.id} class="form-label">
+        <div className="m-4">
+            <label htmlFor={props.id} className="form-label">
                 {props.label}
             </label>
             <select
@@ -25,11 +25,11 @@ function DropdownMenu(props) {
                 aria-label="Select author from a menu"
                 onChange={props.onChange}
                 value={props.value}
-                name={props.value}
+                name={props.name}
             >
-                <option selected>Selecione o autor</option>
+                <option defaultValue>Selecione o autor</option>
                 {students.map((name) => {
-                    return <option value={name}>{name}</option>;
+                    return <option key={name} value={name}>{name}</option>;
                 })}
             </select>
         </div>
