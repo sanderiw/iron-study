@@ -11,6 +11,7 @@ class CreateCard extends React.Component {
         author: "",
         createdTime: "",
         edited: false,
+        submitFailed: false,
     };
 
     handleChange = (event) => {
@@ -26,10 +27,22 @@ class CreateCard extends React.Component {
         const fields = ["url", "type", "text", "tag", "author"];
         for (let field of fields) {
             if (!state[field]) {
-                errors[field] = "Por favor, complete esse campo";
+                errors[field] = true;
+            } else {
+                errors[field] = false;
             }
         }
-        return errors
+        return errors;
+    };
+
+    renderValidationClass = (error) => {
+        let validationClassStr = "";
+        if (error) {
+            validationClassStr = "is-invalid";
+        } else {
+            validationClassStr = "is-valid";
+        }
+        return validationClassStr;
     };
 
     handleSubmit = async (event) => {
@@ -38,6 +51,7 @@ class CreateCard extends React.Component {
         const errors = this.validateFields(this.state);
         if (Object.keys(errors).length !== 0) {
             alert("Por favor, complete todos os campos");
+            this.setState({ submitFailed: true });
         } else {
             try {
                 const response = await axios.post(
@@ -59,6 +73,7 @@ class CreateCard extends React.Component {
                 handleChange={this.handleChange}
                 handleSubmit={this.handleSubmit}
                 validateFields={this.validateFields}
+                renderValidationClass={this.renderValidationClass}
             />
         );
     }

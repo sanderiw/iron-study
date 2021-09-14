@@ -21,7 +21,11 @@ function DropdownMenu(props) {
             </label>
             <select
                 id={props.id}
-                className="form-select"
+                className={`form-select ${
+                    props.submitFailed
+                        ? props.renderValidationClass(props.error[props.name])
+                        : ""
+                }`}
                 aria-label="Select author from a menu"
                 onChange={props.onChange}
                 value={props.value}
