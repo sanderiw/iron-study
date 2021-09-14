@@ -2,6 +2,8 @@ import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Searchbar from '../../components/Homepage/Searchbar'
+
 class Feed extends React.Component {
     state = {
         allCards: [],
@@ -21,8 +23,22 @@ class Feed extends React.Component {
         }
     };
 
+    filterword = (searchTerm) => {
+       const clone = [...this.state.allCards]
+
+       //O filter recebe uma callback que precisa retornar boolean
+
+       const filtered = clone.filter((textCard) => {
+       return textCard.author.toLowerCase().includes(searchTerm.toLowerCase()) || textCard.text.toLowerCase().includes(searchTerm.toLowerCase()) || textCard.tag.toLowerCase().includes(searchTerm.toLowerCase())
+       })
+       
+       this.setState({allCards: [...filtered]});
+      };
+
     render() {
         return (
+            <div>
+                <Searchbar filterword={this.filterword}/>
             <div className="container mt-2 mb-4 d-flex flex-column justify-content-center align-items-center">
                 <h1 className="text-center my-2 mb-3">Feed</h1>
                 {this.state.allCards.map((card) => {
@@ -74,6 +90,7 @@ class Feed extends React.Component {
                         </div>
                     );
                 })}
+            </div>
             </div>
         );
     }
