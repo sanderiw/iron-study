@@ -10,7 +10,7 @@ class StudentProfile extends React.Component {
   };
 
   componentDidMount() {
-    const studentName = this.props.match?.params.name
+    const studentName = this.props.match.params.name
     
     const studentProfile = studentData.find(student => student.name === studentName)
 
@@ -20,7 +20,7 @@ class StudentProfile extends React.Component {
   render() {
 
     return (
-        <div className="row gutters-sm">
+        <div className="row gutters-sm d-flex justify-content-around mt-3">
         <div className="col-md-4 mb-3">
           <div className="card">
             <div className="card-body">
@@ -34,8 +34,10 @@ class StudentProfile extends React.Component {
                 <div className="mt-3">
                   <h4>{this.state.name}</h4>
                   <p className="text-secondary mb-1">{this.state.phrase}</p>
-                  <button className="btn btn-primary">Posts</button>
-                  <button className="btn btn-outline-primary">Statistics</button>
+                  <div>
+                  <button className="btn btn-outline-primary me-2 mt-1">Posts</button>
+                  <button className="btn btn-outline-primary ms-2 mt-1">Statistics</button>
+                  </div>
                 </div>
               </div>
             </div>

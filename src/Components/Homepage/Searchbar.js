@@ -11,7 +11,7 @@ class Searchbar extends React.Component {
 
   render() {
     return (
-      <div className="input-group my-3">
+      <div className="input-group mb-2">
         <div className="input-group-prepend">
           <span className="form-control">
           <i className="fas fa-search"></i>
