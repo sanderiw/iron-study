@@ -1,6 +1,6 @@
 import React from "react";
 
-import studentData from "../../StudentData/studentData"
+import studentData from "../StudentData/studentData"
 
 class StudentProfile extends React.Component {
   state = {

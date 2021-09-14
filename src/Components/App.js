@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Package Imports
 import { BrowserRouter, Route } from "react-router-dom";
 import StudentsBar from './Homepage/StudentsBar/StudentsBar'
-import StudentProfile from "./Homepage/StudentProfile/StudentProfile"
+import StudentProfile from "./StudentProfile/StudentProfile"
 
 // Components Import
 import DeleteCard from "./Card/DeleteCard/DeleteCard";
