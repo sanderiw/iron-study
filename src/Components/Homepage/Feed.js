@@ -48,14 +48,14 @@ class Feed extends React.Component {
                                 <Link to="/share" className="card-link text-dark">
                                     <i
                                         id="share"
-                                        class="far fa-share-square"
+                                        className="far fa-share-square"
                                     ></i>
                                 </Link>
                                 <Link to={`/edit/${card._id}`} className="card-link text-dark">
-                                    <i id="edit" class="far fa-edit"></i>
+                                    <i id="edit" className="far fa-edit"></i>
                                 </Link>
                                 <Link to={`/delete/${card._id}`} className="card-link text-dark">
-                                    <i id="delete" class="far fa-trash-alt"></i>
+                                    <i id="delete" className="far fa-trash-alt"></i>
                                 </Link>
                             </div>
                             <div className="card-body">
