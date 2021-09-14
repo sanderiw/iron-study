@@ -11,7 +11,7 @@ class Searchbar extends React.Component {
 
   componentDidUpdate = (prevProps, prevState) => {
     if (prevState.searchTerm !== this.state.searchTerm) {
-      this.props.filterword(this.state.searchTerm);
+      this.props.onChange(this.state.searchTerm);
     }
   }
 
