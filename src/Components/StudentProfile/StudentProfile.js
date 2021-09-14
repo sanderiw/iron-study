@@ -10,6 +10,7 @@ class StudentProfile extends React.Component {
     name: "",
     img: "",
     phrase: "",
+    showPublications: true,
     showReport: false,
     studentCards: [],
     studentName: this.props.match.params.name,
@@ -44,6 +45,7 @@ class StudentProfile extends React.Component {
 
   handleShowReport = () => {
     this.setState((state) => ({
+      showPublications: !state.showPublications,
       showReport: !state.showReport,
     }));
   };
@@ -65,7 +67,10 @@ class StudentProfile extends React.Component {
                   <h4>{this.state.name}</h4>
                   <p className="text-secondary mb-1">{this.state.phrase}</p>
                   <div>
-                    <button className="btn btn-outline-primary me-2 mt-1" >
+                    <button
+                      className="btn btn-outline-primary me-2 mt-1"
+                      onClick={this.handleShowReport}
+                    >
                       Publicações
                     </button>
 
