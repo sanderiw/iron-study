@@ -19,6 +19,7 @@ class EditCard extends React.Component {
                 `https://ironrest.herokuapp.com/natSanderIronStudy/${this.props.match.params.id}`
             );
             delete response.data._id;
+            response.data['edited'] = true;
             this.setState({ ...response.data });
         } catch (error) {
             console.error(error);

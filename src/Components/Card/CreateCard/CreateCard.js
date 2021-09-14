@@ -1,6 +1,6 @@
 import React from "react";
-import CreateForm from "../../Form/CreateForm";
 import axios from "axios";
+import CreateForm from "../../Form/CreateForm";
 
 class CreateCard extends React.Component {
     state = {
@@ -9,7 +9,7 @@ class CreateCard extends React.Component {
         text: "",
         tag: "",
         author: "",
-        createdTime: null,
+        createdTime: "",
         edited: false
     };
 

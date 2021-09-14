@@ -12,6 +12,7 @@ function RadioButton(props) {
                     id="inlineRadio1"
                     value="video"
                     onChange={props.onChange}
+                    checked={props.type === "video"}
                 />
                 <label className="form-check-label" htmlFor="inlineRadio1">
                     Video
@@ -25,6 +26,7 @@ function RadioButton(props) {
                     id="inlineRadio2"
                     value="artigo"
                     onChange={props.onChange}
+                    checked={props.type === "artigo"}
                 />
                 <label className="form-check-label" htmlFor="inlineRadio2">
                     Artigo
@@ -38,6 +40,7 @@ function RadioButton(props) {
                     id="inlineRadio3"
                     value="curso"
                     onChange={props.onChange}
+                    checked={props.type === "curso"}
                 />
                 <label className="form-check-label" htmlFor="inlineRadio2">
                     Curso
@@ -51,6 +54,7 @@ function RadioButton(props) {
                     id="inlineRadio4"
                     value="repositorio"
                     onChange={props.onChange}
+                    checked={props.type === "repositório"}
                 />
                 <label className="form-check-label" htmlFor="inlineRadio2">
                     Repositório
@@ -64,6 +68,7 @@ function RadioButton(props) {
                     id="inlineRadio5"
                     value="outros"
                     onChange={props.onChange}
+                    checked={props.type === "outros"}
                 />
                 <label className="form-check-label" htmlFor="inlineRadio2">
                     Outros
