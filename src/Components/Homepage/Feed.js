@@ -23,6 +23,24 @@ class Feed extends React.Component {
         }
     };
 
+    isToday = (date) => {
+        const today = new Date();
+        return (
+            date.getDate() === today.getDate() &&
+            date.getMonth() === today.getMonth() &&
+            date.getFullYear() === today.getFullYear()
+        );
+    };
+
+    isYesterday = (date) => {
+        const today = new Date();
+        return (
+            date.getDate() === today.getDate() - 1 &&
+            date.getMonth() === today.getMonth() &&
+            date.getFullYear() === today.getFullYear()
+        );
+    };
+
     convertDate = (dateStr) => {
         const weekDayPtBr = [
             "Dom",
@@ -53,10 +71,25 @@ class Feed extends React.Component {
         const month = date.getMonth();
         const year = date.getFullYear();
         const weekDay = date.getDay();
+        const isToday = this.isToday(date);
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        let phrase = "";
+        if (isToday) {
+            phrase = `hoje as ${hours.toString().padStart(2, "0")}:${minutes
+                .toString()
+                .padStart(2, "0")}`;
+        } else if (this.isYesterday(date)) {
+            phrase = `ontem as ${hours.toString().padStart(2, "0")}:${minutes
+                .toString()
+                .padStart(2, "0")}`;
+        } else {
+            phrase = `${weekDayPtBr[weekDay]}, ${day} de ${monthPtBr[month]}${
+                thisYear === year ? "" : ", " + year
+            }`;
+        }
 
-        return `${weekDayPtBr[weekDay]}, ${day} de ${monthPtBr[month]}${
-            thisYear === year ? "" : ", " + year
-        }`;
+        return phrase;
     };
 
     render() {
@@ -68,7 +101,7 @@ class Feed extends React.Component {
                         <div
                             key={card._id}
                             className="card border-light mt-2 mb-4"
-                            style={{ width: "98vw", maxWidth:"740px" }}
+                            style={{ width: "98vw", maxWidth: "740px" }}
                         >
                             <div className="d-flex align-items-center ms-2 my-2">
                                 <img
@@ -156,7 +189,7 @@ class Feed extends React.Component {
                                     {card.tag}
                                 </li>
                                 <li className="list-group-item border-light pb-0">
-                                    {card.edited ? "Editado em " : "Criado em "}
+                                    {card.edited ? "Editado " : "Criado "}
                                     {this.convertDate(card.createdTime)}
                                 </li>
                             </ul>

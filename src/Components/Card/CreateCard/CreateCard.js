@@ -10,7 +10,7 @@ class CreateCard extends React.Component {
         tag: "",
         author: "",
         createdTime: "",
-        edited: false
+        edited: false,
     };
 
     handleChange = (event) => {
@@ -21,15 +21,34 @@ class CreateCard extends React.Component {
         return this.setState({ createdTime: new Date() });
     };
 
+    validateFields = (state) => {
+        const errors = {};
+        const fields = ["url", "type", "text", "tag", "author"];
+        for (let field of fields) {
+            if (!state[field]) {
+                errors[field] = "Por favor, complete esse campo";
+            }
+        }
+        return errors
+    };
+
     handleSubmit = async (event) => {
         await this.createTime();
         event.preventDefault();
-        try {   
-            const response = await axios.post("https://ironrest.herokuapp.com/natSanderIronStudy", this.state);
-            console.log(response);
-            this.props.history.push("/");
-        } catch (error) {
-            console.error(error);
+        const errors = this.validateFields(this.state);
+        if (Object.keys(errors).length !== 0) {
+            alert("Por favor, complete todos os campos");
+        } else {
+            try {
+                const response = await axios.post(
+                    "https://ironrest.herokuapp.com/natSanderIronStudy",
+                    this.state
+                );
+                console.log(response);
+                this.props.history.push("/");
+            } catch (error) {
+                console.error(error);
+            }
         }
     };
 
@@ -39,6 +58,7 @@ class CreateCard extends React.Component {
                 state={this.state}
                 handleChange={this.handleChange}
                 handleSubmit={this.handleSubmit}
+                validateFields={this.validateFields}
             />
         );
     }
