@@ -49,7 +49,14 @@ class CreateCard extends React.Component {
         await this.createTime();
         event.preventDefault();
         const errors = this.validateFields(this.state);
-        if (Object.keys(errors).length !== 0) {
+        let isNotValid = false;
+        for (let error of Object.keys(errors)) {
+            if (errors[error] === true) {
+                isNotValid = true;
+                break;
+            }
+        }
+        if (isNotValid) {
             alert("Por favor, complete todos os campos");
             this.setState({ submitFailed: true });
         } else {
