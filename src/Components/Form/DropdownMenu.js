@@ -36,6 +36,9 @@ function DropdownMenu(props) {
                     return <option key={name} value={name}>{name}</option>;
                 })}
             </select>
+            <div class="invalid-feedback">
+                Selecione o nome do autor
+            </div>
         </div>
     );
 }
