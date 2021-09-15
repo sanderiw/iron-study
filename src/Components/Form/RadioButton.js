@@ -6,12 +6,17 @@ function RadioButton(props) {
             </p>
             <div className="form-check form-check-inline">
                 <input
-                    className="form-check-input"
+                    className={`form-check-input ${
+                    props.submitFailed
+                        ? props.renderValidationClass(props.error[props.name])
+                        : ""
+                }`}
                     type="radio"
                     name={props.name}
                     id="inlineRadio1"
                     value="video"
                     onChange={props.onChange}
+                    checked={props.type === "video"}
                 />
                 <label className="form-check-label" htmlFor="inlineRadio1">
                     Video
@@ -19,12 +24,17 @@ function RadioButton(props) {
             </div>
             <div className="form-check form-check-inline">
                 <input
-                    className="form-check-input"
+                    className={`form-check-input ${
+                    props.submitFailed
+                        ? props.renderValidationClass(props.error[props.name])
+                        : ""
+                }`}
                     type="radio"
                     name={props.name}
                     id="inlineRadio2"
                     value="artigo"
                     onChange={props.onChange}
+                    checked={props.type === "artigo"}
                 />
                 <label className="form-check-label" htmlFor="inlineRadio2">
                     Artigo
@@ -32,12 +42,17 @@ function RadioButton(props) {
             </div>
             <div className="form-check form-check-inline">
                 <input
-                    className="form-check-input"
+                    className={`form-check-input ${
+                    props.submitFailed
+                        ? props.renderValidationClass(props.error[props.name])
+                        : ""
+                }`}
                     type="radio"
                     name={props.name}
                     id="inlineRadio3"
                     value="curso"
                     onChange={props.onChange}
+                    checked={props.type === "curso"}
                 />
                 <label className="form-check-label" htmlFor="inlineRadio2">
                     Curso
@@ -45,12 +60,17 @@ function RadioButton(props) {
             </div>
             <div className="form-check form-check-inline">
                 <input
-                    className="form-check-input"
+                    className={`form-check-input ${
+                    props.submitFailed
+                        ? props.renderValidationClass(props.error[props.name])
+                        : ""
+                }`}
                     type="radio"
                     name={props.name}
                     id="inlineRadio4"
                     value="repositorio"
                     onChange={props.onChange}
+                    checked={props.type === "repositório"}
                 />
                 <label className="form-check-label" htmlFor="inlineRadio2">
                     Repositório
@@ -58,12 +78,17 @@ function RadioButton(props) {
             </div>
             <div className="form-check form-check-inline">
                 <input
-                    className="form-check-input"
+                    className={`form-check-input ${
+                    props.submitFailed
+                        ? props.renderValidationClass(props.error[props.name])
+                        : ""
+                }`}
                     type="radio"
                     name={props.name}
                     id="inlineRadio5"
                     value="outros"
                     onChange={props.onChange}
+                    checked={props.type === "outros"}
                 />
                 <label className="form-check-label" htmlFor="inlineRadio2">
                     Outros
