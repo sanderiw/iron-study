@@ -52,45 +52,48 @@ class StudentProfile extends React.Component {
 
   render() {
     return (
-      <div className="row gutters-sm d-flex justify-content-around mt-3">
-        <div className="col-md-4 mb-3">
-          <div className="card">
-            <div className="card-body">
-              <div className="d-flex flex-column align-items-center text-center">
-                <img
-                  src={this.state.img}
-                  alt={this.state.name}
-                  className="rounded-circle"
-                  width="120"
-                />
-                <div className="mt-3">
-                  <h4>{this.state.name}</h4>
-                  <p className="text-secondary mb-1">{this.state.phrase}</p>
-                  <div>
-                    <button
-                      className="btn btn-outline-primary me-2 mt-1"
-                      onClick={this.handleShowReport}
-                    >
-                      Publicações
-                    </button>
+      <div>
+        <div className="row gutters-sm d-flex justify-content-around mt-3">
+          <div className="col-md-4 mb-3">
+            <div className="card">
+              <div className="card-body">
+                <div className="d-flex flex-column align-items-center text-center">
+                  <img
+                    src={this.state.img}
+                    alt={this.state.name}
+                    className="rounded-circle"
+                    width="120"
+                  />
+                  <div className="mt-3">
+                    <h4>{this.state.name}</h4>
+                    <p className="text-secondary mb-1">{this.state.phrase}</p>
+                    <div>
+                      <button
+                        className="btn btn-outline-primary me-2 mt-1"
+                        onClick={this.handleShowReport}
+                      >
+                        Publicações
+                      </button>
 
-                    <button
-                      className="btn btn-outline-primary ms-2 mt-1"
-                      onClick={this.handleShowReport}
-                    >
-                      Relatório
-                    </button>
-
-                    {this.state.showReport ? (
-                      <StudentReport />
-                    ) : (
-                      <StudentFeed cards={this.state.studentCards} />
-                    )}
+                      <button
+                        className="btn btn-outline-primary ms-2 mt-1"
+                        onClick={this.handleShowReport}
+                      >
+                        Relatório
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div>
+          {this.state.showReport ? (
+            <StudentReport />
+          ) : (
+            <StudentFeed cards={this.state.studentCards} />
+          )}
         </div>
       </div>
     );
