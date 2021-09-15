@@ -24,6 +24,8 @@ class Feed extends React.Component {
         }
     };
 
+    // Método que filtrará os cards por meio da SearchBar
+
     filterCards = (searchTerm) => {
         const normalizedSearchTerm = searchTerm.toLowerCase();
     
