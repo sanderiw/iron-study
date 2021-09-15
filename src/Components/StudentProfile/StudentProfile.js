@@ -44,17 +44,30 @@ class StudentProfile extends React.Component {
   };
 
   handleShowReport = () => {
-    this.setState((state) => ({
-      showPublications: !state.showPublications,
-      showReport: !state.showReport,
-    }));
+    if (!this.state.showReport) {
+      this.setState({
+        showReport: true,
+        showPublications: false,
+      });
+    }
+  };
+
+  handleShowPublications = () => {
+    if (!this.state.showPublications) {
+      this.setState({
+        showPublications: true,
+        showReport: false,
+      });
+    }
   };
 
   render() {
     return (
       <div className="container mt-2 mb-2 d-flex flex-column justify-content-center align-items-center">
-        <div className="card border-light mt-2 mb-4"
-      style={{ width: "98vw", maxWidth: "740px"}}>
+        <div
+          className="card border-light mt-2 mb-4"
+          style={{ width: "98vw", maxWidth: "740px" }}
+        >
           <div>
             <div className="card">
               <div className="card-body">
@@ -71,7 +84,7 @@ class StudentProfile extends React.Component {
                     <div>
                       <button
                         className="btn btn-outline-primary me-2 mt-1"
-                        onClick={this.handleShowReport}
+                        onClick={this.handleShowPublications}
                       >
                         Publicações
                       </button>
@@ -91,7 +104,7 @@ class StudentProfile extends React.Component {
         </div>
         <div>
           {this.state.showReport ? (
-            <StudentReport />
+            <StudentReport name={this.state.studentName} />
           ) : (
             <StudentFeed cards={this.state.studentCards} />
           )}
