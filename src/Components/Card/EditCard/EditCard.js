@@ -11,6 +11,7 @@ class EditCard extends React.Component {
         author: "",
         createdTime: "",
         edited: true,
+        submitFailed: false,
     };
 
     componentDidMount = async () => {
@@ -19,33 +20,69 @@ class EditCard extends React.Component {
                 `https://ironrest.herokuapp.com/natSanderIronStudy/${this.props.match.params.id}`
             );
             delete response.data._id;
-            response.data['edited'] = true;
+            response.data["edited"] = true;
+            response.data["submitFailed"] = false;
             this.setState({ ...response.data });
         } catch (error) {
             console.error(error);
         }
     };
 
+    handleChange = (event) => {
+        return this.setState({ [event.target.name]: event.target.value });
+    };
+
     createTime = async () => {
         return this.setState({ createdTime: new Date() });
     };
 
-    handleChange = (event) => {
-        return this.setState({ [event.target.name]: event.target.value });
+    validateFields = (state) => {
+        const errors = {};
+        const fields = ["url", "type", "text", "tag", "author"];
+        for (let field of fields) {
+            if (!state[field]) {
+                errors[field] = true;
+            } else {
+                errors[field] = false;
+            }
+        }
+        return errors;
+    };
+
+    renderValidationClass = (error) => {
+        let validationClassStr = "";
+        if (error) {
+            validationClassStr = "is-invalid";
+        } else {
+            validationClassStr = "is-valid";
+        }
+        return validationClassStr;
     };
 
     handleSubmit = async (event) => {
         await this.createTime();
         event.preventDefault();
-        try {
-            const response = await axios.put(
-                `https://ironrest.herokuapp.com/natSanderIronStudy/${this.props.match.params.id}`,
-                this.state
-            );
-            console.log(response);
-            this.props.history.push("/");
-        } catch (error) {
-            console.error(error);
+        const errors = this.validateFields(this.state);
+        let isNotValid = false;
+        for (let error of Object.keys(errors)) {
+            if (errors[error] === true) {
+                isNotValid = true;
+                break;
+            }
+        }
+        if (isNotValid) {
+            this.setState({ submitFailed: true });
+        } else {
+            try {
+                const response = await axios.put(
+                    `https://ironrest.herokuapp.com/natSanderIronStudy/${this.props.match.params.id}`,
+                    this.state
+                );
+                console.log(response);
+                this.props.history.push("/");
+            } catch (error) {
+                console.error(error);
+            }
         }
     };
 
@@ -57,6 +94,8 @@ class EditCard extends React.Component {
                     state={this.state}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
+                    validateFields={this.validateFields}
+                    renderValidationClass={this.renderValidationClass}
                 />
             </div>
         );

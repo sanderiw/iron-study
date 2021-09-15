@@ -4,7 +4,6 @@ import TextInput from "./TextInput";
 import RadioButton from "./RadioButton";
 
 function CreateForm(props) {
-    const error = props.validateFields(props.state);
     return (
         
         <form onSubmit={props.handleSubmit}>
@@ -14,7 +13,7 @@ function CreateForm(props) {
                 name="author"
                 onChange={props.handleChange}
                 value={props.state.author}
-                error={error}
+                error={props.validateFields(props.state)}
                 submitFailed={props.state.submitFailed}
                 renderValidationClass={props.renderValidationClass}
             />
@@ -26,7 +25,7 @@ function CreateForm(props) {
                 name="url"
                 onChange={props.handleChange}
                 value={props.state.url}
-                error={error}
+                error={props.validateFields(props.state)}
                 submitFailed={props.state.submitFailed}
                 renderValidationClass={props.renderValidationClass}
             />
@@ -34,7 +33,7 @@ function CreateForm(props) {
                 onChange={props.handleChange}
                 name="type"
                 type={props.state.type}
-                error={error}
+                error={props.validateFields(props.state)}
                 submitFailed={props.state.submitFailed}
                 renderValidationClass={props.renderValidationClass}
             />
@@ -45,7 +44,7 @@ function CreateForm(props) {
                 name="text"
                 onChange={props.handleChange}
                 value={props.state.text}
-                error={error}
+                error={props.validateFields(props.state)}
                 submitFailed={props.state.submitFailed}
                 renderValidationClass={props.renderValidationClass}
             />
@@ -57,7 +56,7 @@ function CreateForm(props) {
                 name="tag"
                 onChange={props.handleChange}
                 value={props.state.tag}
-                error={error}
+                error={props.validateFields(props.state)}
                 submitFailed={props.state.submitFailed}
                 renderValidationClass={props.renderValidationClass}
             />
