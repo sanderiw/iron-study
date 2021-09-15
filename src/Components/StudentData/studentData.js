@@ -20,17 +20,17 @@ const studentData = [
   {
     name: "Anna",
     img: anna,
-    phrase: "Aaaaaaaah",
+    phrase: "São apenas ajustes técnicos, não gambiarras!",
   },
   {
     name: "Caio",
     img: caio,
-    phrase: "Mangá é muito bom",
+    phrase: "Anime e mangás são muito bons",
   },
   {
     name: "Filipe",
     img: filipe,
-    phrase: "Uma frase teste",
+    phrase: "Proplayer de fortnite",
   },
   {
     name: "Guilherme",
@@ -40,7 +40,7 @@ const studentData = [
   {
     name: "Manoel",
     img: manoel,
-    phrase: "Frase teste",
+    phrase: "Achei interessante",
   },
   {
     name: "Natalia",
@@ -50,12 +50,12 @@ const studentData = [
   {
     name: "Nicollas",
     img: nicollas,
-    phrase: "Frase teste",
+    phrase: "Acabou a energia :(",
   },
   {
     name: "Nilton",
     img: nilton,
-    phrase: "Terminei meu jogo na segunda feira",
+    phrase: "Estou com jogo pronto desde segunda-feira",
   },
   {
     name: "Pedro",
@@ -65,12 +65,12 @@ const studentData = [
   {
     name: "Raul",
     img: raul,
-    phrase: "Teste",
+    phrase: "Começou a NFL",
   },
   {
     name: "Sander",
     img: sander,
-    phrase: "Frase teste",
+    phrase: "Só mais uma pergunta, professor...",
   },
 ];
 

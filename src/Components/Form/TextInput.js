@@ -16,7 +16,7 @@ function TextInput(props) {
                 onChange={props.onChange}
                 value={props.value}
             />
-            <div class="invalid-feedback">
+            <div className="invalid-feedback">
                 Por favor, preencha a {props.name}
             </div>
         </div>

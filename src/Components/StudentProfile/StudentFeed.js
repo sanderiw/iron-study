@@ -1,17 +1,11 @@
-import Card from "./Card";
+import Card from "../Card/Card";
 
 function StudentFeed({ cards }) {
   return cards.map((card) => {
     return (
       <Card
+        card={card}
         key={card._id}
-        id={card._id}
-        edited={card.edited}
-        url={card.url}
-        author={card.author}
-        text={card.text}
-        tag={card.tag}
-        createdTime={card.createdTime}
       />
     );
   });
