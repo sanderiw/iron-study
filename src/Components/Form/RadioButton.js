@@ -69,9 +69,9 @@ function RadioButton(props) {
                     type="radio"
                     name={props.name}
                     id="inlineRadio4"
-                    value="repositorio"
+                    value="repositório"
                     onChange={props.onChange}
-                    checked={props.type === "repositório"}
+                    checked={props.type === "repositório" || props.type === "repositorio" }
                 />
                 <label className="form-check-label" htmlFor="inlineRadio2">
                     Repositório

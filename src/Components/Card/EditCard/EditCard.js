@@ -71,7 +71,6 @@ class EditCard extends React.Component {
             }
         }
         if (isNotValid) {
-            alert("Por favor, complete todos os campos");
             this.setState({ submitFailed: true });
         } else {
             try {
