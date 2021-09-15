@@ -52,9 +52,10 @@ class StudentProfile extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="row gutters-sm d-flex justify-content-around mt-3">
-          <div className="col-md-4 mb-3">
+      <div className="container mt-2 mb-2 d-flex flex-column justify-content-center align-items-center">
+        <div className="card border-light mt-2 mb-4"
+      style={{ width: "98vw", maxWidth: "740px"}}>
+          <div>
             <div className="card">
               <div className="card-body">
                 <div className="d-flex flex-column align-items-center text-center">
