@@ -3,11 +3,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import studentData from "../StudentData/studentData";
+import Searchbar from "../../components/Homepage/Searchbar";
 
 class Feed extends React.Component {
-    state = {
-        allCards: [],
-    };
+  state = {
+    filteredCards: [],
+    allCards: [],
+  };
 
     componentDidMount = async () => {
         try {
@@ -17,11 +19,37 @@ class Feed extends React.Component {
             response.data.sort((a, b) => {
                 return b._id.localeCompare(a._id);
             });
-            this.setState({ allCards: response.data });
+            this.setState({ allCards: response.data, filteredCards: response.data });
         } catch (error) {
             console.error(error);
         }
     };
+
+    filterCards = (searchTerm) => {
+        const normalizedSearchTerm = searchTerm.toLowerCase();
+    
+        if (!searchTerm) {
+          return this.setState({ filteredCards: [...this.state.allCards] });
+        }
+    
+        const allCardsClone = [...this.state.allCards];
+    
+        //O filter recebe uma callback que precisa retornar boolean
+    
+        const filtered = allCardsClone.filter((textCard) => {
+          const hasAuthor = textCard.author
+            .toLowerCase()
+            .includes(normalizedSearchTerm);
+          const hasText = textCard.text
+            .toLowerCase()
+            .includes(normalizedSearchTerm);
+          const hasTag = textCard.tag.toLowerCase().includes(normalizedSearchTerm);
+    
+          return hasAuthor || hasText || hasTag;
+        });
+    
+        this.setState({ filteredCards: [...filtered] });
+      };
 
     isToday = (date) => {
         const today = new Date();
@@ -94,9 +122,11 @@ class Feed extends React.Component {
 
     render() {
         return (
-            <div className="container mt-2 mb-2 d-flex flex-column justify-content-center align-items-center">
+            <div>
+                <Searchbar onChange={this.filterCards} />
+                <div className="container mt-2 mb-2 d-flex flex-column justify-content-center align-items-center">
                 {/* <h1 className="text-center my-2 mb-3">Feed</h1> */}
-                {this.state.allCards.map((card) => {
+                {this.state.filteredCards.map((card) => {
                     return (
                         <div
                             key={card._id}
@@ -196,6 +226,7 @@ class Feed extends React.Component {
                         </div>
                     );
                 })}
+                </div>
             </div>
         );
     }
