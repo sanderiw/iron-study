@@ -18,7 +18,7 @@ class DeleteCard extends React.Component {
     render() {
         return (
             <div className="container mt-5">
-                <h1>Deleting card ...</h1>
+                <h1>Deletando a publicação...</h1>
             </div>
         );
     }

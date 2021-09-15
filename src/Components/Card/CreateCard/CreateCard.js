@@ -1,6 +1,6 @@
 import React from "react";
-import CreateForm from "../../Form/CreateForm";
 import axios from "axios";
+import CreateForm from "../../Form/CreateForm";
 
 class CreateCard extends React.Component {
     state = {
@@ -9,8 +9,9 @@ class CreateCard extends React.Component {
         text: "",
         tag: "",
         author: "",
-        createdTime: null,
-        edited: false
+        createdTime: "",
+        edited: false,
+        submitFailed: false,
     };
 
     handleChange = (event) => {
@@ -21,15 +22,54 @@ class CreateCard extends React.Component {
         return this.setState({ createdTime: new Date() });
     };
 
+    validateFields = (state) => {
+        const errors = {};
+        const fields = ["url", "type", "text", "tag", "author"];
+        for (let field of fields) {
+            if (!state[field]) {
+                errors[field] = true;
+            } else {
+                errors[field] = false;
+            }
+        }
+        return errors;
+    };
+
+    renderValidationClass = (error) => {
+        let validationClassStr = "";
+        if (error) {
+            validationClassStr = "is-invalid";
+        } else {
+            validationClassStr = "is-valid";
+        }
+        return validationClassStr;
+    };
+
     handleSubmit = async (event) => {
         await this.createTime();
         event.preventDefault();
-        try {   
-            const response = await axios.post("https://ironrest.herokuapp.com/natSanderIronStudy", this.state);
-            console.log(response);
-            this.props.history.push("/");
-        } catch (error) {
-            console.error(error);
+        const errors = this.validateFields(this.state);
+        let isNotValid = false;
+        for (let error of Object.keys(errors)) {
+            if (errors[error] === true) {
+                isNotValid = true;
+                break;
+            }
+        }
+        if (isNotValid) {
+            alert("Por favor, complete todos os campos");
+            this.setState({ submitFailed: true });
+        } else {
+            try {
+                const response = await axios.post(
+                    "https://ironrest.herokuapp.com/natSanderIronStudy",
+                    this.state
+                );
+                console.log(response);
+                this.props.history.push("/");
+            } catch (error) {
+                console.error(error);
+            }
         }
     };
 
@@ -39,6 +79,8 @@ class CreateCard extends React.Component {
                 state={this.state}
                 handleChange={this.handleChange}
                 handleSubmit={this.handleSubmit}
+                validateFields={this.validateFields}
+                renderValidationClass={this.renderValidationClass}
             />
         );
     }

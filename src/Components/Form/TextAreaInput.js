@@ -5,7 +5,11 @@ function TextAreaInput(props) {
                 {props.label}
             </label>
             <textarea
-                className="form-control"
+                className={`form-control ${
+                    props.submitFailed
+                        ? props.renderValidationClass(props.error[props.name])
+                        : ""
+                }`}
                 id={props.id}
                 rows="3"
                 placeholder="Por que vc está compartilhando esse conteúdo?"

@@ -3,7 +3,7 @@ import logo from "./images/iron-study-logo.png";
 
 function Navbar() {
     return (
-        <nav className="container navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="px-3 navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
                 <Link className="navbar-brand" to="/">
                     <img
                         className="is-logo"

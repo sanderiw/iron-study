@@ -4,15 +4,19 @@ import TextInput from "./TextInput";
 import RadioButton from "./RadioButton";
 
 function CreateForm(props) {
+    const error = props.validateFields(props.state);
     return (
+        
         <form onSubmit={props.handleSubmit}>
-
-            <DropdownMenu 
+            <DropdownMenu
                 id="cardAuthor"
                 label="Quem é você?"
                 name="author"
                 onChange={props.handleChange}
                 value={props.state.author}
+                error={error}
+                submitFailed={props.state.submitFailed}
+                renderValidationClass={props.renderValidationClass}
             />
 
             <TextInput
@@ -22,10 +26,17 @@ function CreateForm(props) {
                 name="url"
                 onChange={props.handleChange}
                 value={props.state.url}
+                error={error}
+                submitFailed={props.state.submitFailed}
+                renderValidationClass={props.renderValidationClass}
             />
-            <RadioButton 
+            <RadioButton
                 onChange={props.handleChange}
                 name="type"
+                type={props.state.type}
+                error={error}
+                submitFailed={props.state.submitFailed}
+                renderValidationClass={props.renderValidationClass}
             />
 
             <TextAreaInput
@@ -34,6 +45,9 @@ function CreateForm(props) {
                 name="text"
                 onChange={props.handleChange}
                 value={props.state.text}
+                error={error}
+                submitFailed={props.state.submitFailed}
+                renderValidationClass={props.renderValidationClass}
             />
 
             <TextInput
@@ -43,9 +57,12 @@ function CreateForm(props) {
                 name="tag"
                 onChange={props.handleChange}
                 value={props.state.tag}
+                error={error}
+                submitFailed={props.state.submitFailed}
+                renderValidationClass={props.renderValidationClass}
             />
 
-            <button type="submit" className="btn btn-light m-4">
+            <button type="submit" className="btn btn-light m-4 mt-1">
                 Enviar
             </button>
         </form>

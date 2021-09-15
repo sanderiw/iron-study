@@ -6,7 +6,11 @@ function TextInput(props) {
             </label>
             <input
                 type={props.type}
-                className="form-control"
+                className={`form-control ${
+                    props.submitFailed
+                        ? props.renderValidationClass(props.error[props.type])
+                        : ""
+                }`}
                 id={props.id}
                 name={props.name}
                 onChange={props.onChange}
