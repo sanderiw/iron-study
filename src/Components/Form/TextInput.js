@@ -17,7 +17,7 @@ function TextInput(props) {
                 value={props.value}
             />
             <div class="invalid-feedback">
-                Por favor, preencha uma tag
+                Por favor, preencha a {props.name}
             </div>
         </div>
     );
