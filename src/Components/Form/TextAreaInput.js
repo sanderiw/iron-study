@@ -17,6 +17,9 @@ function TextAreaInput(props) {
                 value={props.value}
                 onChange={props.onChange}
             ></textarea>
+            <div class="invalid-feedback">
+                Conte mais um pouco sobre a sua recomendação ou experiência
+            </div>
         </div>
     );
 }

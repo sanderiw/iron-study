@@ -4,6 +4,7 @@ function RadioButton(props) {
             <p>
                 Qual o tipo do conteúdo?
             </p>
+            
             <div className="form-check form-check-inline">
                 <input
                     className={`form-check-input ${
@@ -94,6 +95,7 @@ function RadioButton(props) {
                     Outros
                 </label>
             </div>
+            
         </div>
     );
 }

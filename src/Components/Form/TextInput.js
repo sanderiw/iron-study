@@ -8,7 +8,7 @@ function TextInput(props) {
                 type={props.type}
                 className={`form-control ${
                     props.submitFailed
-                        ? props.renderValidationClass(props.error[props.type])
+                        ? props.renderValidationClass(props.error[props.name])
                         : ""
                 }`}
                 id={props.id}
@@ -16,7 +16,9 @@ function TextInput(props) {
                 onChange={props.onChange}
                 value={props.value}
             />
-            {props.hint ? <div className="form-text">{props.hint}</div> : null}
+            <div class="invalid-feedback">
+                Por favor, preencha uma tag
+            </div>
         </div>
     );
 }
