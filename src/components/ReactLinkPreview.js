@@ -9,7 +9,7 @@ class ReactLinkPreview extends React.Component {
 
     getData = async () => {
         try {
-            const response = await axios.get(
+            await axios.get(
                 "https://rlp-proxy.herokuapp.com/v2?url=" + this.state.url
             );
         } catch (error) {
