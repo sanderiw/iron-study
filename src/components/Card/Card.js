@@ -149,7 +149,7 @@ function Card(props) {
             </a>
             <div className="card-body pt-2 pb-0 d-flex justify-content-between mx-0">
                 <div>
-                    <Link to="/comment" className="card-link text-dark">
+                    <Link to={`/comment/${props.card._id}/${props.card.author}`} className="card-link text-dark">
                         <i id="comment" className="far fa-comment"></i>
                     </Link>
                     <Link
