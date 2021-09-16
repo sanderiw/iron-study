@@ -5,8 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 // Package Imports
 import { BrowserRouter, Route } from "react-router-dom";
-import StudentsBar from './Homepage/StudentsBar/StudentsBar'
-import StudentProfile from "./StudentProfile/StudentProfile"
+// import StudentsBar from './Homepage/StudentsBar/StudentsBar'
+import StudentProfile from "./StudentProfile/StudentProfile";
 
 // Components Import
 import DeleteCard from "./Card/DeleteCard/DeleteCard";
@@ -22,7 +22,6 @@ function App() {
     return (
         <BrowserRouter>
             <Route path="/" component={Navbar} />
-            <Route exact path="/" component={StudentsBar} />
             <Route exact path="/" component={Feed} />
             <Route path="/profile/:name" component={StudentProfile} />
             <Route path="/create" component={CreateCard} />
