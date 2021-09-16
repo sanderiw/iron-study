@@ -66,7 +66,7 @@ class Comment extends React.Component {
       return this.state.comments.map((comment) => {
         return (
           <div className="card-body pt-3 pb-0">
-          {this.renderImg(comment.currentAuthor)}
+            {this.renderImg(comment.currentAuthor)}
             <h6 className="card-title d-inline fw-bold">
               {comment.currentAuthor}
             </h6>
@@ -126,7 +126,6 @@ class Comment extends React.Component {
   };
 
   render() {
-    console.log(this.state.author);
     return (
       //Autor do texto//
       <div className="container mt-2 mb-2 d-flex flex-column justify-content-center align-items-center">
@@ -134,7 +133,7 @@ class Comment extends React.Component {
           className="card border-light mt-2 mb-4"
           style={{ width: "98vw", maxWidth: "740px" }}
         >
-          <div className="d-flex align-items-center ms-2 my-2">
+          <div className="d-flex align-items-center justify-content-center ms-2 my-2">
             <div className="card">
               <div className="card-body pt-3 pb-0">
               {this.renderImg(this.state.author)}
