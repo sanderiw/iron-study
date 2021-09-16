@@ -24,22 +24,29 @@ const StudentsBar = (props) => {
                 (sortedStudent) => sortedStudent.name === student.name
             )
         ) {
-          sortedStudentData.push(student);
+            sortedStudentData.push(student);
         }
     }
 
     return (
-        <div className="studentsBar-container pb-3 mb-0">
-            {sortedStudentData.map((person) => (
-                <Link to={`/profile/${person.name}`} key={person.name}>
-                    <img
-                        src={person.img}
-                        alt="imgStudentProfile"
-                        className="rounded-circle mx-1"
-                        width="60"
-                    />
-                </Link>
-            ))}
+        <div className="container mt-2 mb-2 d-flex flex-column justify-content-center align-items-center">
+            <div
+                className="card border-light mt-2 mb-4"
+                style={{ width: "98vw", maxWidth: "740px" }}
+            >
+                <div className="studentsBar-container pb-2 mb-0 style-3">
+                    {sortedStudentData.map((person) => (
+                        <Link to={`/profile/${person.name}`} key={person.name}>
+                            <img
+                                src={person.img}
+                                alt="imgStudentProfile"
+                                className="rounded-circle mx-1"
+                                width="60px"
+                            />
+                        </Link>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 };
