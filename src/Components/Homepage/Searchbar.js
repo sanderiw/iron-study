@@ -17,9 +17,9 @@ class Searchbar extends React.Component {
 
   render() {
     return (
-      <div className="container mt-2 mb-2 d-flex flex-column justify-content-center align-items-center">
+      <div className="container mt-0 mb-0 d-flex flex-column justify-content-center align-items-center">
         <div
-          className="card border-light mt-2 mb-3"
+          className="card border-light mt-1 mb-1"
           style={{ width: "98vw", maxWidth: "740px" }}
         >
           <div className="input-group">

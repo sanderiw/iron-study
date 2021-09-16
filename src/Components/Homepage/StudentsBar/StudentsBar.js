@@ -17,7 +17,7 @@ const StudentsBar = () => {
               src={person.img}
               alt="imgStudentProfile"
               className="rounded-circle mx-1"
-              width="90"
+              width="60px"
             />
           </Link>
         ))}
