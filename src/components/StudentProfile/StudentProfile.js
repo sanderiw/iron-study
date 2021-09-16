@@ -31,6 +31,9 @@ class StudentProfile extends React.Component {
       const response = await axios.get(
         "https://ironrest.herokuapp.com/natSanderIronStudy"
       );
+      response.data.sort((a, b) => {
+        return b._id.localeCompare(a._id);
+      });
       this.setState({
         studentCards: [
           ...response.data.filter(

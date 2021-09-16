@@ -21,6 +21,7 @@ class EditCard extends React.Component {
             );
             delete response.data._id;
             response.data["edited"] = true;
+            response.data["comments"] = [];
             response.data["submitFailed"] = false;
             this.setState({ ...response.data });
         } catch (error) {

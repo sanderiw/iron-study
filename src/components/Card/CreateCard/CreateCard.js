@@ -12,6 +12,7 @@ class CreateCard extends React.Component {
         createdTime: "",
         edited: false,
         submitFailed: false,
+        comments: [],
     };
 
     handleChange = (event) => {

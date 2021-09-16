@@ -132,7 +132,7 @@ class StudentReport extends React.Component {
               <div className="card">
                 <ul className="ul">
                   {this.state.types.othersUrls.map((url) => (
-                    <li className="list-group-item" key={url}>
+                    <li className="li" key={url}>
                       <a href={url} className="a">{url}</a>
                     </li>
                   ))}

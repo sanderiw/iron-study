@@ -12,6 +12,7 @@ import StudentProfile from "./StudentProfile/StudentProfile";
 import DeleteCard from "./Card/DeleteCard/DeleteCard";
 import CreateCard from "./Card/CreateCard/CreateCard";
 import EditCard from "./Card/EditCard/EditCard";
+import Comment from "./Card/CommentCard/Comment";
 import Navbar from "./Homepage/Navbar";
 import Feed from "./Homepage/Feed";
 import Info from "./Info/Info";
@@ -27,6 +28,7 @@ function App() {
             <Route path="/create" component={CreateCard} />
             <Route path="/delete/:id" component={DeleteCard} />
             <Route path="/edit/:id" component={EditCard} />
+            <Route path="/comment/:id" component={Comment} />
             <Route path="/info" component={Info} />
         </BrowserRouter>
     );
