@@ -3,6 +3,7 @@ import React from "react";
 
 import Searchbar from "../../components/Homepage/Searchbar";
 import Card from "../Card/Card"
+import StudentsBar from "./StudentsBar/StudentsBar";
 
 class Feed extends React.Component {
   state = {
@@ -53,6 +54,7 @@ class Feed extends React.Component {
     render() {
         return (
             <div>
+                <StudentsBar state={this.state} />
                 <Searchbar onChange={this.filterCards} />
                 <div className="container mt-2 mb-2 d-flex flex-column justify-content-center align-items-center">
                 {/* <h1 className="text-center my-2 mb-3">Feed</h1> */}
