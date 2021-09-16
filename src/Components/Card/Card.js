@@ -72,6 +72,8 @@ const convertDate = (dateStr) => {
   return phrase;
 };
 
+// Função para a estilização do card
+
 function Card(props) {
   return (
     <div
