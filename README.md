@@ -1,70 +1,17 @@
-# Getting Started with Create React App
+# Iron Study
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O Iron Study é um site cujo objetivo é a interação dos alunos da turma 56 de WebDev da IronHack por meio de posts de conteúdos - sejam eles vídeos, artigos, repositórios, etc - referentes ao curso ou estudos no geral.
 
-## Available Scripts
+## Sobre o Projeto
 
-In the project directory, you can run:
+O Iron Study é um site completamente responsivo (pode ser usado em celulares, computadores, tablets, etc), no qual o estudante poderá criar publicações ao preencher o formulário - clicando no ícone de +, localizado na NavBar -  e enviá-las para o Feed, onde será compartilhada com os seus colegas. O estudante pode, também, fazer a edição ou exclusão dessa publicação. Cada estudante tem um perfil individual que pode ser acessado por meio do StudenBar, localizado logo abaixo da NavBar ou por meio do seu nome/foto em seus próprios posts. No StudentProfile de cada aluno encontram-se as publicações feitas por esse aluno e o Relatório com o resumo de links postados. Logo abaixo do StudentBar, encontra-se a SearchBar com filtragem dinâmica para encontrar melhor o conteúdo desejado no site. No Feed encontram-se todos os Cards postados pelos alunos e, além da funcionalidade de edição e exclusão supracitadas pode-se, também, adicionar comentários à publicação de outra pessoa por meio do ícone de balão. A estilização do site foi inspirada no aplicativo Instagram.
 
-### `npm start`
+## Detalhes do Projeto
+- [Iron Study](https://ironstudy.netlify.app/)
+- Apresentação
+-  Planejamento do site
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Programadores
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Natália Alves: [Linkedin](https://www.linkedin.com/in/nat%C3%A1lia-alves-5b00891b9/) / [GitHub](https://github.com/nat-alvec)
+- Sander Iwase: [Linkedin](https://www.linkedin.com/in/sanderiwase/) / [GitHub](https://github.com/sanderiw)
