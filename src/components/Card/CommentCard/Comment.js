@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { convertDate } from "../Card";
 
 import studentData from "../../StudentData/studentData";
 
@@ -79,16 +80,27 @@ class Comment extends React.Component {
                         key={index}
                         className="card-body pt-3 pb-0 d-flex justify-content-between align-content-center"
                     >
-                        <div>
-                            {this.renderImg(comment.currentAuthor)}
-                            <Link to={`/profile/${comment.currentAuthor}`} className="text-decoration-none text-body" >
-                                <h6 className="card-title d-inline fw-bold">
-                                    {comment.currentAuthor}
-                                </h6>
-                            </Link>
-                            <p className="card-text d-inline ms-2">
-                                {comment.currentComment}
-                            </p>
+                        <div className="d-flex align-items-center">
+                            <div>{this.renderImg(comment.currentAuthor)}</div>
+                            <div>
+                                <Link
+                                    to={`/profile/${comment.currentAuthor}`}
+                                    className="text-decoration-none text-body"
+                                >
+                                    <h6 className="card-title d-inline fw-bold ms-1">
+                                        {comment.currentAuthor}
+                                    </h6>
+                                </Link>
+                                <p className="card-text d-inline ms-3">
+                                    {comment.currentComment}
+                                </p>
+                                <p
+                                    className="text-secondary ms-1 mb-0"
+                                    style={{ fontSize: "12px" }}
+                                >
+                                    {convertDate(comment.currentTime)}
+                                </p>
+                            </div>
                         </div>
                         <div>
                             <Link
@@ -159,14 +171,14 @@ class Comment extends React.Component {
             //Autor do texto//
             <div className="container mt-2 mb-2 d-flex flex-column justify-content-center align-items-center">
                 <div
-                    className="card border-light mt-2 mb-4"
+                    className="border-light mt-2 mb-4"
                     style={{ width: "100%", maxWidth: "740px" }}
                 >
-                    <div className="d-flex justify-content-center ms-2 my-2 card">
+                    <div className="d-flex justify-content-center ms-2 my-2 card border-light">
                         <div className="card-body pt-3 pb-0 border-light">
                             {this.renderImg(this.state.author)}
 
-                            <h6 className="card-title d-inline fw-bold">
+                            <h6 className="card-title d-inline fw-bold ms-1">
                                 {this.state.author}
                             </h6>
                             <p className="card-text d-inline ms-2">
@@ -179,7 +191,7 @@ class Comment extends React.Component {
 
                         {/* Input para o comentário */}
                         <form onSubmit={this.handleSubmit}>
-                            <div className="m-4">
+                            <div className="m-4 pt-2">
                                 <label
                                     htmlFor="commentDropdown"
                                     className="form-label"
@@ -188,7 +200,7 @@ class Comment extends React.Component {
                                 </label>
                                 <select
                                     id="commentDropdown"
-                                    className="form-select"
+                                    className="form-select mt-2"
                                     aria-label="Select author from a menu"
                                     onChange={this.handleChange}
                                     value={this.state.currentAuthor}

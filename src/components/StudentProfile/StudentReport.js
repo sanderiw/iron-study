@@ -68,7 +68,7 @@ class StudentReport extends React.Component {
         >
           {Boolean(this.state.types.videosUrls.length) && (
             <>
-              <span className="fw-bold ms-2 mb-3"> <i className="fab fa-youtube fa-lg"></i> Vídeos: </span>
+              <span className="fw-bold ms-3 mb-3"> <i className="fab fa-youtube fa-lg"></i> Vídeos: </span>
               <div className="card border-light">
                 <ul className="ul mb-3">
                   {this.state.types.videosUrls.map((url) => (
@@ -83,7 +83,7 @@ class StudentReport extends React.Component {
 
           {Boolean(this.state.types.articlesUrls.length) && (
             <>
-              <span className="fw-bold ms-2 mb-3"> <i className="fas fa-newspaper fa-lg"></i> Artigos: </span>
+              <span className="fw-bold ms-3 mb-3"> <i className="fas fa-newspaper fa-lg"></i> Artigos: </span>
               <div className="card border-light">
                 <ul className="ul mb-3">
                   {this.state.types.articlesUrls.map((url) => (
@@ -98,7 +98,7 @@ class StudentReport extends React.Component {
 
           {Boolean(this.state.types.coursesUrls.length) && (
             <>
-              <span className="fw-bold ms-2 mb-3"> <i className="fas fa-graduation-cap fa-lg"></i> Cursos: </span>
+              <span className="fw-bold ms-3 mb-3"> <i className="fas fa-graduation-cap fa-lg"></i> Cursos: </span>
               <div className="card border-light">
                 <ul className="ul mb-3">
                   {this.state.types.coursesUrls.map((url) => (
@@ -113,7 +113,7 @@ class StudentReport extends React.Component {
 
           {Boolean(this.state.types.repositoriesUrls.length) && (
             <>
-              <span className="fw-bold ms-2 mb-3"> <i class="fab fa-github fa-lg"></i> Repositórios: </span>
+              <span className="fw-bold ms-3 mb-3"> <i class="fab fa-github fa-lg"></i> Repositórios: </span>
               <div className="card border-light">
                 <ul className="ul mb-3">
                   {this.state.types.repositoriesUrls.map((url) => (
@@ -128,7 +128,7 @@ class StudentReport extends React.Component {
 
           {Boolean(this.state.types.othersUrls.length) && (
             <>
-              <span className="fw-bold ms-2 mb-3"> <i class="fas fa-lightbulb fa-lg"></i> Outros: </span>
+              <span className="fw-bold ms-3 mb-3"> <i class="fas fa-lightbulb fa-lg"></i> Outros: </span>
               <div className="card border-light">
                 <ul className="ul mb-3">
                   {this.state.types.othersUrls.map((url) => (

@@ -31,7 +31,7 @@ const StudentsBar = (props) => {
     return (
         <div className="container mt-2 mb-2 d-flex flex-column justify-content-center align-items-center">
             <div
-                className="card border-light mt-2 mb-4"
+                className="card border-light mt-2 mb-1"
                 style={{ width: "98vw", maxWidth: "740px" }}
             >
                 <div className="studentsBar-container pb-2 mb-0 style-3">

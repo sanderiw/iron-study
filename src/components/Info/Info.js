@@ -4,19 +4,19 @@ import ironStudyLogo from "../Homepage/images/iron-study-logo.png";
 
 function Info() {
     return (
-        <div className="container d-flex flex-column align-items-center">
+        <div className="container d-flex flex-column align-items-center mb-5">
             <img
                 className="mt-5"
                 src={ironStudyLogo}
                 alt="logo"
                 style={{ width: "300px" }}
             />
-            <div className="card text-center mt-5" style={{ width: "22rem" }}>
+            <div className="card text-center mt-5 border-light" style={{ width: "22rem" }}>
                 <img
                     src={nataliaImg}
                     className="card-img-top rounded-circle"
                     alt="..."
-                    style={{ width: "80%", margin: "auto" }}
+                    style={{ width: "60%", margin: "auto" }}
                 />
                 <div className="card-body">
                     <h5 className="card-title">Natália Alves</h5>
@@ -42,12 +42,12 @@ function Info() {
                     </a>
                 </div>
             </div>
-            <div className="card text-center mt-5" style={{ width: "22rem" }}>
+            <div className="card text-center mt-5 border-light" style={{ width: "22rem" }}>
                 <img
                     src={sanderImg}
                     className="card-img-top rounded-circle"
                     alt="..."
-                    style={{ width: "80%", margin: "auto" }}
+                    style={{ width: "60%", margin: "auto" }}
                 />
                 <div className="card-body">
                     <h5 className="card-title">Sander Iwase</h5>
