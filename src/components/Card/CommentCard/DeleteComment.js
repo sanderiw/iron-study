@@ -47,7 +47,7 @@ class DeleteComment extends React.Component {
     render() {
         return (
             <div className="container mt-5">
-                <h1>Deletando o comentário...</h1>
+                <p className="ms-5">Deletando o comentário...</p>
             </div>
         );
     }

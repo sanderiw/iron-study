@@ -81,9 +81,11 @@ class Comment extends React.Component {
                     >
                         <div>
                             {this.renderImg(comment.currentAuthor)}
-                            <h6 className="card-title d-inline fw-bold">
-                                {comment.currentAuthor}
-                            </h6>
+                            <Link to={`/profile/${comment.currentAuthor}`} className="text-decoration-none text-body" >
+                                <h6 className="card-title d-inline fw-bold">
+                                    {comment.currentAuthor}
+                                </h6>
+                            </Link>
                             <p className="card-text d-inline ms-2">
                                 {comment.currentComment}
                             </p>
@@ -138,12 +140,14 @@ class Comment extends React.Component {
                 (student) => student.name === authorName
             );
             return (
-                <img
-                    src={author.img}
-                    className="rounded-circle mx-1"
-                    width="30px"
-                    alt="perfil da pessoa"
-                />
+                <Link to={`/profile/${authorName}`}>
+                    <img
+                        src={author.img}
+                        className="rounded-circle mx-1"
+                        width="30px"
+                        alt="perfil da pessoa"
+                    />
+                </Link>
             );
         } else {
             return <div></div>;
