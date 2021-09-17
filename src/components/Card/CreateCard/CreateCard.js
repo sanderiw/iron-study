@@ -75,13 +75,22 @@ class CreateCard extends React.Component {
 
     render() {
         return (
-            <CreateForm
-                state={this.state}
-                handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit}
-                validateFields={this.validateFields}
-                renderValidationClass={this.renderValidationClass}
-            />
+            <div className="container">
+                <div className="m-5 mt-4">
+                    <h3 className="ms-3 mt-0 mb-2 ps-2" >Crie uma publicação</h3>
+                    <p className="ms-3 ps-2 mt-3 fw-lighter fst-italic">
+                        Pretende estudar algum conteúdo? Fez alguma aula ou
+                        curso interessante? Compartilha com a gente!
+                    </p>
+                    <CreateForm
+                        state={this.state}
+                        handleChange={this.handleChange}
+                        handleSubmit={this.handleSubmit}
+                        validateFields={this.validateFields}
+                        renderValidationClass={this.renderValidationClass}
+                    />
+                </div>
+            </div>
         );
     }
 }

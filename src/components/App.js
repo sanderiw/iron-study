@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import StudentProfile from "./StudentProfile/StudentProfile";
 
 // Components Import
+import DeleteComment from "./Card/CommentCard/DeleteComment";
 import DeleteCard from "./Card/DeleteCard/DeleteCard";
 import CreateCard from "./Card/CreateCard/CreateCard";
 import EditCard from "./Card/EditCard/EditCard";
@@ -16,7 +17,6 @@ import Comment from "./Card/CommentCard/Comment";
 import Navbar from "./Homepage/Navbar";
 import Feed from "./Homepage/Feed";
 import Info from "./Info/Info";
-import DeleteComment from "./Card/CommentCard/DeleteComment";
 
 // Others
 
