@@ -8,7 +8,7 @@ O Iron Study é um site completamente responsivo (pode ser usado em celulares, c
 
 ## Detalhes do Projeto
 - [Iron Study](https://ironstudy.netlify.app/)
-- Apresentação
+- [Apresentação](https://docs.google.com/presentation/d/1In2jwjKer-1FIWgimEmkfg4HxiTlVd8L0QDEZf-vtv4/edit?usp=sharing)
 - [Planejamento do site](https://www.notion.so/sanderiw/Iron-Study-Projeto-2-98cfb5e44ff14cc2990fdb492e641d63)
 
 ### Programadores
