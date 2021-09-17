@@ -90,7 +90,7 @@ class EditCard extends React.Component {
     render() {
         return (
             <div className="container">
-                <h1 className="m-4">Editar o card</h1>
+                <h3 className="m-4">Edite esta publicação</h3>
                 <CreateForm
                     state={this.state}
                     handleChange={this.handleChange}

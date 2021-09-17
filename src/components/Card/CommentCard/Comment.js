@@ -119,6 +119,7 @@ class Comment extends React.Component {
     };
 
     handleSubmit = async (event) => {
+        event.preventDefault();
         await this.createTime();
         this.setState({
             commentObject: {
@@ -127,22 +128,40 @@ class Comment extends React.Component {
                 currentTime: this.state.currentTime,
             },
         });
-        event.preventDefault();
-        const commentsToPush = this.state.comments;
-        commentsToPush.push(this.state.commentObject);
+        const commentsToPush = [...this.state.comments];
+        commentsToPush.push({ ...this.state.commentObject });
         const object = { comments: commentsToPush };
-
-        try {
-            const response = await axios.put(
-                `https://ironrest.herokuapp.com/natSanderIronStudy/${this.props.match.params.id}`,
-                object,
-                this.props.history.push(
-                    `/comment/${this.props.match.params.id}`
-                )
-            );
-            console.log(response);
-        } catch (error) {
-            console.error(error);
+        const errors = this.validateFields(this.state);
+        let isNotValid = false;
+        for (let error of Object.keys(errors)) {
+            if (errors[error] === true) {
+                isNotValid = true;
+                break;
+            }
+        }
+        if (isNotValid) {
+            this.setState({ submitFailed: true });
+        } else {
+            try {
+                const response = await axios.put(
+                    `https://ironrest.herokuapp.com/natSanderIronStudy/${this.props.match.params.id}`,
+                    object
+                );
+                window.location.reload();
+                console.log(response);
+                this.setState({
+                    currentComment: "",
+                    currentAuthor: "",
+                    currentTime: "",
+                    commentObject: {
+                        currentComment: this.state.currentComment,
+                        currentAuthor: this.state.currentAuthor,
+                        currentTime: this.state.currentTime,
+                    },
+                });
+            } catch (error) {
+                console.error(error);
+            }
         }
     };
 
@@ -164,6 +183,29 @@ class Comment extends React.Component {
         } else {
             return <div></div>;
         }
+    };
+
+    validateFields = (state) => {
+        const errors = {};
+        const fields = ["currentComment", "currentAuthor"];
+        for (let field of fields) {
+            if (!state[field]) {
+                errors[field] = true;
+            } else {
+                errors[field] = false;
+            }
+        }
+        return errors;
+    };
+
+    renderValidationClass = (error) => {
+        let validationClassStr = "";
+        if (error) {
+            validationClassStr = "is-invalid";
+        } else {
+            validationClassStr = "is-valid";
+        }
+        return validationClassStr;
     };
 
     render() {
@@ -200,7 +242,15 @@ class Comment extends React.Component {
                                 </label>
                                 <select
                                     id="commentDropdown"
-                                    className="form-select mt-2"
+                                    className={`form-select mt-2 ${
+                                        this.state.submitFailed
+                                            ? this.renderValidationClass(
+                                                  this.validateFields(
+                                                      this.state
+                                                  )["currentAuthor"]
+                                              )
+                                            : ""
+                                    }`}
                                     aria-label="Select author from a menu"
                                     onChange={this.handleChange}
                                     value={this.state.currentAuthor}
@@ -217,10 +267,21 @@ class Comment extends React.Component {
                                         );
                                     })}
                                 </select>
+                                <div className="invalid-feedback">
+                                    Coloque o seu nome :)
+                                </div>
                             </div>
-                            <div className="m-4">
+                            <div className="m-4 mt-5">
                                 <textarea
-                                    className="form-control"
+                                    className={`form-control ${
+                                        this.state.submitFailed
+                                            ? this.renderValidationClass(
+                                                  this.validateFields(
+                                                      this.state
+                                                  )["currentComment"]
+                                              )
+                                            : ""
+                                    }`}
                                     id="commentbox"
                                     rows="3"
                                     placeholder="Adicione um comentário"
@@ -228,6 +289,9 @@ class Comment extends React.Component {
                                     value={this.state.currentComment}
                                     onChange={this.handleChange}
                                 ></textarea>
+                                <div className="invalid-feedback">
+                                    Digite sua mensagem!
+                                </div>
                             </div>
                             <button
                                 type="submit"
