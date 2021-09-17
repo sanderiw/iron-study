@@ -1,6 +1,6 @@
 # Iron Study
 
-O Iron Study é um site cujo objetivo é a interação dos alunos da turma 56 de WebDev da IronHack por meio de posts de conteúdos - sejam eles vídeos, artigos, repositórios, etc - referentes ao curso ou estudos no geral.
+O Iron Study é um site cujo objetivo é a interação dos alunos da IronHack por meio de posts de conteúdos - sejam eles vídeos, artigos, repositórios, etc - referentes ao curso ou estudos no geral.
 
 ## Sobre o Projeto
 
