@@ -24,7 +24,7 @@ const isYesterday = (date) => {
     );
 };
 
-const convertDate = (dateStr) => {
+export const convertDate = (dateStr) => {
     const weekDayPtBr = [
         "Dom",
         "Seg",
@@ -78,9 +78,7 @@ const renderPreview = (type, url) => {
     if (type === "video") {
         return <Video url={url} />;
     } else {
-        return (
-          <ReactLinkPreview url={url} />
-        );
+        return <ReactLinkPreview url={url} />;
     }
 };
 
@@ -144,19 +142,27 @@ function Card(props) {
                 </div>
             </div>
 
-            <a href={props.card.url} target="_blank" rel="noreferrer" className="text-decoration-none text-body">
+            <a
+                href={props.card.url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-decoration-none text-body"
+            >
                 {renderPreview(props.card.type, props.card.url)}
             </a>
             <div className="card-body pt-2 pb-0 d-flex justify-content-between mx-0">
                 <div>
-                    <Link to={`/comment/${props.card._id}/${props.card.author}`} className="card-link text-dark">
-                        <i id="comment" className="far fa-comment"></i>
+                    <Link
+                        to={`/comment/${props.card._id}`}
+                        className="card-link text-dark"
+                    >
+                        <i id="comment" className="far fa-comment fa-lg"></i>
                     </Link>
                     <Link
                         to={`/edit/${props.card._id}`}
                         className="card-link text-dark"
                     >
-                        <i id="edit" className="far fa-edit"></i>
+                        <i id="edit" className="far fa-edit fa-lg"></i>
                     </Link>
                 </div>
                 <div>
@@ -164,7 +170,7 @@ function Card(props) {
                         to={`/delete/${props.card._id}`}
                         className="card-link text-dark"
                     >
-                        <i id="delete" className="far fa-trash-alt"></i>
+                        <i id="delete" className="far fa-trash-alt fa-lg"></i>
                     </Link>
                 </div>
             </div>

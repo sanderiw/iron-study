@@ -4,7 +4,7 @@ import axios from "axios";
 class DeleteCard extends React.Component {
     state = {};
 
-    componentDidMount = async () => {
+    deleteThisCard = async () => {
         try {
             await axios.delete(
                 `https://ironrest.herokuapp.com/natSanderIronStudy/${this.props.match.params.id}`
@@ -17,8 +17,9 @@ class DeleteCard extends React.Component {
 
     render() {
         return (
-            <div className="container mt-5">
-                <h1>Deletando a publicação...</h1>
+            <div className="container mt-5 text-center">
+                <h1>Tem certeza?</h1>
+                <button onClick={this.deleteThisCard} className="btn btn-danger m-4 p-3">Confirme aqui!</button>
             </div>
         );
     }
