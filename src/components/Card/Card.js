@@ -149,14 +149,14 @@ function Card(props) {
             </a>
             <div className="card-body pt-2 pb-0 d-flex justify-content-between mx-0">
                 <div>
-                    <Link to={`/comment/${props.card._id}/${props.card.author}`} className="card-link text-dark">
-                        <i id="comment" className="far fa-comment"></i>
+                    <Link to={`/comment/${props.card._id}`} className="card-link text-dark">
+                        <i id="comment" className="far fa-comment fa-lg"></i>
                     </Link>
                     <Link
                         to={`/edit/${props.card._id}`}
                         className="card-link text-dark"
                     >
-                        <i id="edit" className="far fa-edit"></i>
+                        <i id="edit" className="far fa-edit fa-lg"></i>
                     </Link>
                 </div>
                 <div>
@@ -164,7 +164,7 @@ function Card(props) {
                         to={`/delete/${props.card._id}`}
                         className="card-link text-dark"
                     >
-                        <i id="delete" className="far fa-trash-alt"></i>
+                        <i id="delete" className="far fa-trash-alt fa-lg"></i>
                     </Link>
                 </div>
             </div>

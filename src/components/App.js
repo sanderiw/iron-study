@@ -4,7 +4,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Package Imports
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import StudentsBar from './Homepage/StudentsBar/StudentsBar'
 import StudentProfile from "./StudentProfile/StudentProfile";
 
@@ -16,6 +16,7 @@ import Comment from "./Card/CommentCard/Comment";
 import Navbar from "./Homepage/Navbar";
 import Feed from "./Homepage/Feed";
 import Info from "./Info/Info";
+import DeleteComment from "./Card/CommentCard/DeleteComment";
 
 // Others
 
@@ -28,7 +29,14 @@ function App() {
             <Route path="/create" component={CreateCard} />
             <Route path="/delete/:id" component={DeleteCard} />
             <Route path="/edit/:id" component={EditCard} />
-            <Route path="/comment/:id" component={Comment} />
+            <Switch>
+                <Route
+                    exact
+                    path="/comment/delete/:time/:publication"
+                    component={DeleteComment}
+                />
+                <Route path="/comment/:id" component={Comment} />
+            </Switch>
             <Route path="/info" component={Info} />
         </BrowserRouter>
     );

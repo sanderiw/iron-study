@@ -59,7 +59,6 @@ class Feed extends React.Component {
                 <StudentsBar state={this.state} />
                 <Searchbar onChange={this.filterCards} />
                 <div className="container mt-2 mb-2 d-flex flex-column justify-content-center align-items-center">
-                {/* <h1 className="text-center my-2 mb-3">Feed</h1> */}
                 {this.state.filteredCards.map((card) => {
                     return (
                         <Card card={card} key={card._id} />
