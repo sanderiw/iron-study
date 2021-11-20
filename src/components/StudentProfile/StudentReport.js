@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import './studentReport.css'
+import "./studentReport.css";
 
 class StudentReport extends React.Component {
   state = {
@@ -36,15 +36,13 @@ class StudentReport extends React.Component {
       video: [],
       artigo: [],
       curso: [],
-      repositorio: [],
+      repositório: [],
       outros: [],
     };
 
     this.state.data.forEach((studentData) => {
       if (studentData.author === this.props.name) {
         types[studentData.type].push(studentData.url);
-        //types.video
-        // retorna o array [] do types.video
       }
     });
 
@@ -53,7 +51,7 @@ class StudentReport extends React.Component {
         videosUrls: [...types.video],
         articlesUrls: [...types.artigo],
         coursesUrls: [...types.curso],
-        repositoriesUrls: [...types.repositorio],
+        repositoriesUrls: [...types.repositório],
         othersUrls: [...types.outros],
       },
     });
@@ -68,12 +66,22 @@ class StudentReport extends React.Component {
         >
           {Boolean(this.state.types.videosUrls.length) && (
             <>
-              <span className="fw-bold ms-3 mb-3"> <i className="fab fa-youtube fa-lg"></i> Vídeos: </span>
+              <span className="fw-bold ms-3 mb-3">
+                {" "}
+                <i className="fab fa-youtube fa-lg"></i> Vídeos:{" "}
+              </span>
               <div className="card border-light">
                 <ul className="ul mb-3">
                   {this.state.types.videosUrls.map((url) => (
                     <li className="li" key={url}>
-                      <a href={url} target="_blank" rel="noreferrer" className="a">{url}</a>
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="a"
+                      >
+                        {url}
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -83,12 +91,22 @@ class StudentReport extends React.Component {
 
           {Boolean(this.state.types.articlesUrls.length) && (
             <>
-              <span className="fw-bold ms-3 mb-3"> <i className="fas fa-newspaper fa-lg"></i> Artigos: </span>
+              <span className="fw-bold ms-3 mb-3">
+                {" "}
+                <i className="fas fa-newspaper fa-lg"></i> Artigos:{" "}
+              </span>
               <div className="card border-light">
                 <ul className="ul mb-3">
                   {this.state.types.articlesUrls.map((url) => (
                     <li className="li" key={url}>
-                      <a href={url} target="_blank" rel="noreferrer" className="a">{url}</a>
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="a"
+                      >
+                        {url}
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -98,12 +116,22 @@ class StudentReport extends React.Component {
 
           {Boolean(this.state.types.coursesUrls.length) && (
             <>
-              <span className="fw-bold ms-3 mb-3"> <i className="fas fa-graduation-cap fa-lg"></i> Cursos: </span>
+              <span className="fw-bold ms-3 mb-3">
+                {" "}
+                <i className="fas fa-graduation-cap fa-lg"></i> Cursos:{" "}
+              </span>
               <div className="card border-light">
                 <ul className="ul mb-3">
                   {this.state.types.coursesUrls.map((url) => (
                     <li className="li" key={url}>
-                      <a href={url} target="_blank" rel="noreferrer" className="a">{url}</a>
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="a"
+                      >
+                        {url}
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -113,12 +141,22 @@ class StudentReport extends React.Component {
 
           {Boolean(this.state.types.repositoriesUrls.length) && (
             <>
-              <span className="fw-bold ms-3 mb-3"> <i class="fab fa-github fa-lg"></i> Repositórios: </span>
+              <span className="fw-bold ms-3 mb-3">
+                {" "}
+                <i class="fab fa-github fa-lg"></i> Repositórios:{" "}
+              </span>
               <div className="card border-light">
                 <ul className="ul mb-3">
                   {this.state.types.repositoriesUrls.map((url) => (
                     <li className="li" key={url}>
-                      <a href={url} target="_blank" rel="noreferrer" className="a">{url}</a>
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="a"
+                      >
+                        {url}
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -128,12 +166,22 @@ class StudentReport extends React.Component {
 
           {Boolean(this.state.types.othersUrls.length) && (
             <>
-              <span className="fw-bold ms-3 mb-3"> <i class="fas fa-lightbulb fa-lg"></i> Outros: </span>
+              <span className="fw-bold ms-3 mb-3">
+                {" "}
+                <i class="fas fa-lightbulb fa-lg"></i> Outros:{" "}
+              </span>
               <div className="card border-light">
                 <ul className="ul mb-3">
                   {this.state.types.othersUrls.map((url) => (
                     <li className="li" key={url}>
-                      <a href={url} target="_blank" rel="noreferrer" className="a">{url}</a>
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="a"
+                      >
+                        {url}
+                      </a>
                     </li>
                   ))}
                 </ul>
